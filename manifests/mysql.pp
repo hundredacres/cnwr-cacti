@@ -9,4 +9,13 @@ class cacti::mysql {
     remove_default_accounts => true,
   }
 
+  mysql::db { 'cacti':
+    user => $::cacti::database_user,
+    password => $::cacti::database_pass,
+    host => $::cacti::database_host,
+    grant => ['ALL'],
+    sql => '/usr/share/doc/cacti-0.8.8b/cacti.sql',
+  }
+
+
 }
