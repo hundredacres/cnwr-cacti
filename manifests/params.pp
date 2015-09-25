@@ -27,6 +27,7 @@ class cacti::params {
 
   $database_root_pass = hiera(cacti::database::root_pass)
   $database_type = hiera(cacti::database::type, 'mysql')
+  $database_default = hiera(cacti::database::default, 'cacti')
   $database_host = hiera(cacti::database::host, 'localhost')
   $database_user = hiera(cacti::database::user, 'cacti')
   $database_pass = hiera(cacti::database::pass)

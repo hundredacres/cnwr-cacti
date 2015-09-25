@@ -5,11 +5,11 @@
 class cacti::config {
 
   file { '/etc/cacti/db.php':
-    ensure => present,
+    ensure  => present,
     content => template('cacti/etc/cacti/db.erb'),
-    mode => '0640',
-    owner => 'cacti',
-    group => 'apache',
+    mode    => '0640',
+    owner   => 'cacti',
+    group   => 'apache',
   }
 
 
