@@ -18,7 +18,12 @@ class cacti (
   $database_user = $::cacti::params::database_user,
   $database_pass = $::cacti::params::database_pass,
   $database_port = $::cacti::params::database_port,
-  $database_ssl = $::cacti::params::database_ssl
+  $database_ssl = $::cacti::params::database_ssl,
+  $cron_min = $::cacti::params::cron_min,
+  $cron_hour = $::cacti::params::cron_hour,
+  $cron_dayMonth = $::cacti::params::cron_dayMonth,
+  $cron_monthYear = $::cacti::params::cron_monthYear,
+  $cron_dayWeek = $::cacti::params::cron_dayWeek
 ) inherits ::cacti::params {
 
   # validate parameters here

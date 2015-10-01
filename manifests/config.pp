@@ -23,4 +23,12 @@ class cacti::config {
     require => Package['httpd']
   }
 
+  file { '/etc/cron.d/cacti':
+    ensure => present,
+    content => template('cacti/etc/cron.d/cacti.erb'),
+    mode => '0644',
+    owner => 'root',
+    group => 'root',
+  }
+
 }
