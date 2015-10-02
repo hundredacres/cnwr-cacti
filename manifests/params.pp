@@ -33,9 +33,4 @@ class cacti::params {
   $database_pass = hiera(cacti::database::pass)
   $database_port = hiera(cacti::database::port, '3306')
   $database_ssl = hiera(cacti::database::ssl, false)
-  $cron_min = hiera(cacti::cron::min, '*/5')
-  $cron_hour = hiera(cacti::cron::hour, '*')
-  $cron_dayMonth = hiera(cacti::cron::dayMonth, '*')
-  $cron_monthYear = hiera(cacti::cron::monthYear, '*')
-  $cron_dayWeek = hiera(cacti::cron::dayWeek, '*')
 }
