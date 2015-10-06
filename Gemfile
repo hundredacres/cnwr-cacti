@@ -6,6 +6,7 @@ group :test do
   gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
   gem "puppetlabs_spec_helper"
   gem "metadata-json-lint"
+  gem "hiera-puppet-helper",   :git => "git://github.com/bobtfish/hiera-puppet-helper.git"
 end
 
 group :development do
@@ -16,5 +17,4 @@ group :development do
   gem "vagrant-wrapper"
   gem "puppet-blacksmith"
   gem "guard-rake"
-  gem 'hiera-puppet-helper',   :git => 'git://github.com/bobtfish/hiera-puppet-helper.git', :require => false
 end
