@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'puppetlabs_spec_helper/module_spec_helper'
 require 'hiera'
+require 'puppet/indirector/hiera'
 require 'hiera-puppet-helper'
 
 #hiera helper
