@@ -13,8 +13,8 @@ class cacti::config {
   }
 
   augeas { 'cacti_perms':
-    incl => '/etc/httpd/conf.d/cacti.conf',
-    lens => 'Httpd.lns',
+    incl    => '/etc/httpd/conf.d/cacti.conf',
+    lens    => 'Httpd.lns',
     context => '/files/etc/httpd/conf.d/cacti.conf',
     changes => [ 'set /files/etc/httpd/conf.d/cacti.conf/Directory[1]/IfModule[1]/directive/arg[1] all',
       'set /files/etc/httpd/conf.d/cacti.conf/Directory[1]/IfModule[1]/directive/arg[2] granted',
@@ -23,12 +23,11 @@ class cacti::config {
     require => Package['httpd']
   }
 
-  file { '/etc/cron.d/cacti':
-    ensure => present,
-    content => template('cacti/etc/cron.d/cacti.erb'),
-    mode => '0644',
-    owner => 'root',
-    group => 'root',
+  cron::job { 'cacti':
+    minute  => '*/5',
+    command => '/usr/bin/php /usr/share/cacti/poller.php > /dev/null 2>&1',
+    user    => 'cacti',
   }
+
 
 }
