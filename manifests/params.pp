@@ -6,8 +6,8 @@
 class cacti::params {
   case $::osfamily {
     'RedHat': {
-      case $::hardwaremodel {
-        'x86_64': {
+      case $::operatingsystemmajrelease {
+        '7': {
           $package_name = 'cacti'
           $managed_services = [ 'httpd', 'snmpd' ]
           $dependencies = [ 'httpd', 'httpd-devel', 'php-mysql', 'php-pear',
@@ -16,7 +16,7 @@ class cacti::params {
             'rrdtool' ]
         }
         default: {
-          fail("${::hardwaremodel} not supported")
+          fail("${::operatingsystem} ${::operatingsystemmajrelease} not supported")
         }
       }
     }

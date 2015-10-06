@@ -1,7 +1,8 @@
 .*.sw?
 pkg
-spec/fixtures
+spec/fixtures/m*
 .rspec_system
 .vagrant
 .bundle
 vendor
+*.lock

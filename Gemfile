@@ -16,4 +16,5 @@ group :development do
   gem "vagrant-wrapper"
   gem "puppet-blacksmith"
   gem "guard-rake"
+  gem 'hiera-puppet-helper',   :git => 'git://github.com/bobtfish/hiera-puppet-helper.git', :require => false
 end

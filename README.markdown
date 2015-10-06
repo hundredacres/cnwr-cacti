@@ -1,5 +1,7 @@
 # cacti
 
+[![Build Status](https://travis-ci.org/garrettrowell/puppet-cacti.svg?branch=master)](https://travis-ci.org/garrettrowell/puppet-cacti)
+
 #### Table of Contents
 
 1. [Overview](#overview)
