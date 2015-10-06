@@ -2,7 +2,7 @@
   "name": "garrettrowell-cacti",
   "version": "0.0.1",
   "author": "Garrett Rowell",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "summary": "Installs Cacti",
   "source": "https://github.com/garrettrowell/puppet-cacti",
   "project_page": "https://forge.puppetlabs.com/examplecorp/mymodule",
