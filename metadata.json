@@ -1,0 +1,25 @@
+{
+  "name": "garrettrowell-cacti",
+  "version": "0.0.1",
+  "author": "Garrett Rowell",
+  "license": "Apache-2.0",
+  "summary": "Installs Cacti",
+  "source": "https://github.com/garrettrowell/puppet-cacti",
+  "project_page": "https://forge.puppetlabs.com/examplecorp/mymodule",
+  "issues_url": "https://github.com/garrettrowell/puppet-cacti/issues",
+  "tags": ["cacti"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem":"RedHat",
+      "operatingsystemrelease":[ "7" ]
+    },
+    {
+      "operatingsystem":"CentOS",
+      "operatingsystemrelease":[ "7" ]
+    },
+  ],
+  "dependencies": [
+    { "cron": "rmueller", "version_requirement": ">=0.1.3" },
+    { "mysql": "puppetlabs/mysql", "version_requirement": ">= 3.6.1" }
+  ]
+}

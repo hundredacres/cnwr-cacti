@@ -1,60 +1,102 @@
+# cacti
+
 #### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with cacti](#setup)
     * [What cacti affects](#what-cacti-affects)
-    * [Setup requirements](#setup-requirements)
+      * [Installed Packages](#installed-packages)
+      * [Managed Services](#managed-services)
+      * [Managed Files](#managed-files)
     * [Beginning with cacti](#beginning-with-cacti)
 4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
+7. [Release Notes - Changelog](#release-notes)
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves. This is your 30 second elevator pitch for your module. Consider including OS/Puppet version it works with.       
+Installs Cacti and manages all of its dependencies.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology the module integrates with and what that integration enables. This section should answer the questions: "What does this module *do*?" and "Why would I use it?"
+The Cacti module installs, configures, and manages all of Cacti's dependencies.
 
-If your module has a range of functionality (installation, configuration, management, etc.) this is the time to mention it.
+Uses the [puppetlabs-mysql](https://github.com/puppetlabs/puppetlabs-mysql) module to install, manage, and configure mariadb for use with cacti.
+
+Uses [rmueller-cron](https://github.com/roman-mueller/rmueller-cron) to manage /etc/cron.d/cacti.
+
 
 ## Setup
 
 ### What cacti affects
 
-* A list of files, packages, services, or operations that the module will alter, impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form. 
+#### Installed Packages
 
-### Setup Requirements **OPTIONAL**
+* httpd
+* httpd-devel
+* mariadb-server
+* php-mysql
+* php-pear
+* php-common
+* php-gd
+* php-devel
+* php
+* php-mbstring
+* php-cli
+* php-snmp
+* net-snmp-utils
+* net-snmp-libs
+* rrdtool
 
-If your module requires anything extra before setting up (pluginsync enabled, etc.), mention it here. 
+#### Managed Services
+
+* httpd
+* mariadb
+* snmpd
+
+#### Managed Files
+* `/etc/cacti/db.php`
+* `/etc/httpd/conf.d/cacti.conf`
+* `/etc/cron.d/cacti`
 
 ### Beginning with cacti
+To get started using the cacti module with default settings use:
 
-The very basic steps needed for a user to get the module up and running. 
+`include ::cacti`
 
-If your most recent release breaks compatibility or requires particular steps for upgrading, you may wish to include an additional section here: Upgrading (For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+The following should be defined in hiera since no defaults are provided:
+
+* `cacti::database::root_pass` - MariaDB password used by the root user
+
+* `cacti::database::pass` - MariaDB password used by the cacti user
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here. 
+The following can be changed from their defaults by specifying values in hiera:
 
-## Reference
-
-Here, list the classes, types, providers, facts, etc contained in your module. This section should include all of the under-the-hood workings of your module so people know what the module is touching on their system but don't need to mess with things. (We are working on automating this section!)
+* `cacti::database::root_pass` - The database password for the root user
+* `cacti::database::type` - The type of database used - DEFAULTS to "mysql"
+* `cacti::database::default` - The database used by cacti - DEFAULTS to "cacti"
+* `cacti::database::host` - The hostname where the database in installed - DEFAULTS to "localhost"
+* `cacti::database::user` - The database user that cacti uses - DEFAULTS to "cacti"
+* `cacti::database::pass` - The database password for the cacti user
+* `cacti::database::port` - The port that the database is listening on - DEFAULTS to "3306"
+* `cacti::database::ssl` - Use SSL for database communication - DEFAULTS to "false"
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Currently only the following Operating Systems are supported:
+
+* RHEL 7
+* CentOS 7
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+If you wish to contribute to this module please either add an [issue](https://github.com/garrettrowell/puppet-cacti/issues) or better yet submit a [Pull Request](https://github.com/garrettrowell/puppet-cacti/pulls)
 
-## Release Notes/Contributors/Etc **Optional**
+## Release Notes
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header. 
+### Version 0.0.1
+* Initial release
