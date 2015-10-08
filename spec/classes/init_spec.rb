@@ -2,8 +2,6 @@ require 'spec_helper'
 
 
 describe 'cacti' do
-  include_context 'hieradata'
-
   context 'supported operating systems' do
     describe "cacti class without any parameters on RHEL 7" do
       let(:params) {{ }}
