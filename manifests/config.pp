@@ -18,9 +18,9 @@ class cacti::config {
     context => '/files/etc/httpd/conf.d/cacti.conf',
     changes => [ 'set /files/etc/httpd/conf.d/cacti.conf/Directory[1]/IfModule[1]/directive/arg[1] all',
       'set /files/etc/httpd/conf.d/cacti.conf/Directory[1]/IfModule[1]/directive/arg[2] granted',
-      'set /files/etc/httpd/conf.d/cacti.conf/Directory[1]/IfModule[2]/directive[3]/arg[2] all'
+      'set /files/etc/httpd/conf.d/cacti.conf/Directory[1]/IfModule[2]/directive[3]/arg[2] all',
     ],
-    require => Package['httpd']
+    require => Package['httpd'],
   }
 
   cron::job { 'cacti':

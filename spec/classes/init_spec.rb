@@ -1,24 +1,30 @@
 require 'spec_helper'
 
-
 describe 'cacti' do
-  context 'supported operating systems' do
-    describe "cacti class without any parameters on RHEL 7" do
-      let(:params) {{ }}
-      let(:facts) {{
-        :osfamily => "Redhat",
-        :operatingsystemmajrelease => "7",
-      }}
+  on_supported_os({
+    :hardwaremodels => ['x86_64'],
+    :supported_os   => [
+      {
+        "operatingsystem" => "RedHat",
+        "operatingsystemrelease" => [
+          "7",
+        ]
+      }
+    ],
+  }).each do |os, facts|
+      context "on #{os}" do
+        let(:facts) do
+          facts
+        end
 
-      it { should compile.with_all_deps }
+        it { should compile.with_all_deps }
 
-      it { should contain_class('cacti::deps').that_comes_before('cacti::install') }
-      it { should contain_class('cacti::params') }
-      it { should contain_class('cacti::install').that_comes_before('cacti::mysql') }
-      it { should contain_class('cacti::mysql').that_comes_before('cacti::config') }
-      it { should contain_class('cacti::config') }
-      it { should contain_class('cacti::service') }
-
+        it { should contain_class('cacti::deps').that_comes_before('cacti::install') }
+        it { should contain_class('cacti::params') }
+        it { should contain_class('cacti::install').that_comes_before('cacti::mysql') }
+        it { should contain_class('cacti::mysql').that_comes_before('cacti::config') }
+        it { should contain_class('cacti::config') }
+        it { should contain_class('cacti::service') }
+      end
     end
-  end
 end
