@@ -38,15 +38,11 @@ Uses [rmueller-cron](https://github.com/roman-mueller/rmueller-cron) to manage /
 #### Installed Packages
 
 * httpd
-* httpd-devel
 * mariadb-server
 * php-mysql
-* php-pear
+* php-pdo
 * php-common
-* php-gd
-* php-devel
 * php
-* php-mbstring
 * php-cli
 * php-snmp
 * net-snmp-utils

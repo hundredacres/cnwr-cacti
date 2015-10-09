@@ -6,3 +6,4 @@ spec/fixtures/m*
 .bundle
 vendor
 *.lock
+coverage/*

@@ -10,10 +10,6 @@ class cacti::params {
         '7': {
           $package_name = 'cacti'
           $managed_services = [ 'httpd', 'snmpd' ]
-          $dependencies = [ 'httpd', 'httpd-devel', 'php-mysql', 'php-pear',
-            'php-common', 'php-gd', 'php-devel', 'php', 'php-mbstring',
-            'php-cli', 'php-snmp', 'net-snmp-utils', 'net-snmp-libs',
-            'rrdtool' ]
         }
         default: {
           fail("${::operatingsystem} ${::operatingsystemmajrelease} not supported")

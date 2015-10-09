@@ -9,7 +9,6 @@
 #
 class cacti inherits ::cacti::params {
 
-  class { '::cacti::deps': } ->
   class { '::cacti::install': } ->
   class { '::cacti::mysql': } ->
   class { '::cacti::config': } ~>
