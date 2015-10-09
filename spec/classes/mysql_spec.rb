@@ -31,7 +31,7 @@ describe 'cacti::mysql' do
               with({"user"=>"cacti",
                     "password"=>"cacti_password",
                     "host"=>"localhost",
-                    "grant"=>"ALL",
+                    "grant"=>["ALL"],
                     "sql"=>"/usr/share/doc/cacti-0.8.8b/cacti.sql"})
           end
         end

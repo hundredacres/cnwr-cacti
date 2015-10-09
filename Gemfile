@@ -11,7 +11,7 @@ group :test do
   gem 'rubocop', '0.33.0'
   gem 'simplecov'
   gem 'simplecov-console'
-
+  gen 'coveralls', require: false
   gem "puppet-lint-absolute_classname-check"
   gem "puppet-lint-leading_zero-check"
   gem "puppet-lint-trailing_comma-check"
