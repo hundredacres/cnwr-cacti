@@ -3,9 +3,9 @@
 # This class is meant to be called from cacti.
 # It ensure the required services are running.
 #
-class cacti::service {
+class cacti::service inherits ::cacti::params{
 
-  service { $::cacti::managed_services:
+  service { $::cacti::params::managed_services:
     ensure     => running,
     enable     => true,
     hasstatus  => true,

@@ -16,9 +16,7 @@ describe 'cacti' do
         let(:facts) do
           facts
         end
-
         it { should compile.with_all_deps }
-
         it { should contain_class('cacti::deps').that_comes_before('cacti::install') }
         it { should contain_class('cacti::params') }
         it { should contain_class('cacti::install').that_comes_before('cacti::mysql') }

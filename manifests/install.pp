@@ -2,9 +2,9 @@
 #
 # This class is called from cacti for install.
 #
-class cacti::install {
+class cacti::install inherits ::cacti::params{
 
-  package { $::cacti::package_name:
+  package { $::cacti::params::package_name:
     ensure => present,
   }
 }

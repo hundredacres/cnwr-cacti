@@ -2,7 +2,14 @@
 #
 # This class is called from cacti for service config.
 #
-class cacti::config {
+class cacti::config (
+  $database_default = $::cacti::params::database_default,
+  $database_host = $::cacti::params::database_host,
+  $database_user = $::cacti::params::database_user,
+  $database_pass = $::cacti::params::database_pass,
+  $database_port = $::cacti::params::database_port,
+  $database_ssl = $::cacti::params::database_ssl,
+) inherits ::cacti::params {
 
   file { '/etc/cacti/db.php':
     ensure  => present,
