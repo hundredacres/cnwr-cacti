@@ -20,7 +20,7 @@ describe 'cacti' do
         it { should contain_class('cacti::params') }
         it { should contain_class('cacti::install').that_comes_before('cacti::mysql') }
         it { should contain_class('cacti::mysql').that_comes_before('cacti::config') }
-        it { should contain_class('cacti::config') }
+        it { should contain_class('cacti::config').that_comes_before('cacti::service') }
         it { should contain_class('cacti::service') }
       end
     end

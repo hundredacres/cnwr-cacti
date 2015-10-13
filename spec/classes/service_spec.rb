@@ -15,6 +15,7 @@ describe 'cacti::service' do
     ],
   }).each do |os, facts|
       context "on #{os}" do
+        let(:pre_condition) { "class {'cacti': managed_services => #{services}}" }
         let(:facts) do
           facts
         end
@@ -32,5 +33,5 @@ describe 'cacti::service' do
           end
         end
       end
-  end
+    end
 end
