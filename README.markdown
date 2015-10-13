@@ -65,24 +65,61 @@ To get started using the cacti module with default settings use:
 
 `include ::cacti`
 
-The following should be defined in hiera since no defaults are provided:
+However, the following NEED to be defined in hiera since no defaults are provided:
 
-* `cacti::database::root_pass` - MariaDB password used by the root user
+* `cacti::database_root_pass`
 
-* `cacti::database::pass` - MariaDB password used by the cacti user
+* `cacti::database_pass`
 
+* `cacti::managed_services`
+
+Alternatively, if hiera is not available you can pass in the parameters directly:
+```puppet
+class { '::cacti':
+  database_root_pass => 'yourpass',
+  database_pass => 'yourpass',
+  managed_services => [ 'httpd', 'snmpd' ],
+}
+```
 ## Usage
 
-The following can be changed from their defaults by specifying values in hiera:
+The following can be changed from their defaults by specifying values either in hiera or by passing them in as parameters:
 
-* `cacti::database::root_pass` - The database password for the root user
-* `cacti::database::type` - The type of database used - DEFAULTS to "mysql"
-* `cacti::database::default` - The database used by cacti - DEFAULTS to "cacti"
-* `cacti::database::host` - The hostname where the database in installed - DEFAULTS to "localhost"
-* `cacti::database::user` - The database user that cacti uses - DEFAULTS to "cacti"
-* `cacti::database::pass` - The database password for the cacti user
-* `cacti::database::port` - The port that the database is listening on - DEFAULTS to "3306"
-* `cacti::database::ssl` - Use SSL for database communication - DEFAULTS to "false"
+* `cacti::cacti_package` - Cacti's package name - DEFAULTS to "cacti"
+
+* `cacti::database_root_pass` - The database password for the root user
+
+* `cacti::database_type` - The type of database used - DEFAULTS to "mysql"
+
+* `cacti::database_default` - The database used by cacti - DEFAULTS to "cacti"
+
+* `cacti::database_host` - The hostname where the database in installed - DEFAULTS to "localhost"
+
+* `cacti::database_user` - The database user that cacti uses - DEFAULTS to "cacti"
+
+* `cacti::database_pass` - The database password for the cacti user
+
+* `cacti::database_port` - The port that the database is listening on - DEFAULTS to "3306"
+
+* `cacti::database_ssl` - Use SSL for database communication - DEFAULTS to "false"
+
+* `cacti::managed_services` - The services that this module will manage. Unless being managed elsewhere, you should define this as => [ 'httpd, 'snmpd' ]
+
+### Parameter example
+```puppet
+class { '::cacti':
+  cacti_package => 'cacti',
+  database_root_pass => 'yourpass',
+  database_pass => 'yourpass',
+  database_type => 'mysql',
+  database_default => 'cacti',
+  database_host => 'localhost',
+  database_user => 'cacti',
+  database_port => '3306',
+  database_ssl => false,
+  managed_services => [ 'httpd', 'snmpd' ],
+}
+```
 
 ## Limitations
 
@@ -98,4 +135,3 @@ If you wish to contribute to this module please either add an [issue](https://gi
 ## Release Notes
 
 ### Version 0.0.1
-* Initial release
