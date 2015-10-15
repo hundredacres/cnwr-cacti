@@ -5,10 +5,13 @@
 #
 class cacti::service inherits ::cacti{
 
-  service { $::cacti::managed_services:
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
+  if $::cacti::managed_services != [] {
+    service { $::cacti::managed_services:
+      ensure     => running,
+      enable     => true,
+      hasstatus  => true,
+      hasrestart => true,
+    }
   }
+
 }

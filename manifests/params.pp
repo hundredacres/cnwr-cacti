@@ -11,6 +11,8 @@ class cacti::params {
   $database_port = '3306'
   $database_ssl = false
   $managed_services = []
+  $database_root_pass = undef
+  $database_pass = undef
 
   case $::osfamily {
     'RedHat': {

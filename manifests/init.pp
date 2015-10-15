@@ -59,8 +59,8 @@
 #
 class cacti (
   $cacti_package = $::cacti::params::cacti_package,
-  $database_root_pass,
-  $database_pass,
+  $database_root_pass = $::cacti::params::database_root_pass,
+  $database_pass = $::cacti::params::database_pass,
   $database_user = $::cacti::params::database_user,
   $database_host = $::cacti::params::database_host,
   $database_type = $::cacti::params::database_type,
@@ -70,6 +70,27 @@ class cacti (
   $managed_services = $::cacti::params::managed_services,
 
 ) inherits ::cacti::params {
+
+  validate_string($cacti_package)
+
+  validate_string($database_root_pass)
+  if $database_root_pass == undef {
+    fail('database_root_pass must be defined')
+  }
+
+  validate_string($database_pass)
+  if $database_pass == undef {
+    fail('database_pass must be defined')
+  }
+
+  validate_string($database_user)
+  validate_string($database_host)
+  validate_string($database_type)
+  validate_string($database_default)
+  validate_re($database_port,'\d')
+  validate_bool($database_ssl)
+  validate_array($managed_services)
+
 
   include ::cacti::install
   include ::cacti::mysql

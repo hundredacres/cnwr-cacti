@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-@database_type="test"
-@database_default="t2"
+required_params = "database_root_pass => 'root_password', database_pass => 'cacti_password',"
 
 describe 'cacti::config' do
   on_supported_os({
@@ -16,10 +15,10 @@ describe 'cacti::config' do
     ],
   }).each do |os, facts|
       context "on #{os}" do
+        let(:pre_condition) { "class {'cacti': #{required_params}}" }
         let(:facts) do
           facts
         end
-
         let(:params) do
           {
           }
