@@ -1,7 +1,7 @@
 # cacti
 
-[![Build Status](https://travis-ci.org/garrettrowell/puppet-cacti.svg?branch=master)](https://travis-ci.org/garrettrowell/puppet-cacti)
-[![Coverage Status](https://coveralls.io/repos/garrettrowell/puppet-cacti/badge.svg?branch=master&service=github)](https://coveralls.io/github/garrettrowell/puppet-cacti?branch=master)
+[![Build Status](https://travis-ci.org/garrettrowell/puppet-cacti.svg?branch=master)](https://travis-ci.org/cnwrinc/cnwr-cacti)
+[![Coverage Status](https://coveralls.io/repos/garrettrowell/puppet-cacti/badge.svg?branch=master&service=github)](https://coveralls.io/github/cnwrinc/cnwr-cacti?branch=master)
 
 #### Table of Contents
 
