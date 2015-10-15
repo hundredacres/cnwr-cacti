@@ -5,7 +5,7 @@
   "license": "MIT",
   "summary": "Installs Cacti",
   "source": "https://github.com/cnwrinc/cnwr-cacti",
-  "project_page": "https://forge.puppetlabs.com/cnwr/cnwr-cacti",
+  "project_page": "https://github.com/cnwrinc/cnwr-cacti",
   "issues_url": "https://github.com/cnwrinc/cnwr-cacti/issues",
   "dependencies": [
     { "name":"rmueller/cron", "version_requirement":">=0.1.3" },
