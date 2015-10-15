@@ -135,3 +135,7 @@ If you wish to contribute to this module please either add an [issue](https://gi
 ## Release Notes
 
 ### Version 0.0.1
+* create the module
+
+### Version 0.0.2
+* add testing and prepare for the forge
