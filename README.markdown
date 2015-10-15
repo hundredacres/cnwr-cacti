@@ -130,7 +130,7 @@ Currently only the following Operating Systems are supported:
 
 ## Development
 
-If you wish to contribute to this module please either add an [issue](https://github.com/garrettrowell/puppet-cacti/issues) or better yet submit a [Pull Request](https://github.com/garrettrowell/puppet-cacti/pulls)
+If you wish to contribute to this module please either add an [issue](https://github.com/cnwrinc/cnwr-cacti/issues) or better yet submit a [Pull Request](https://github.com/cnwrinc/cnwr-cacti/pulls)
 
 ## Release Notes
 
