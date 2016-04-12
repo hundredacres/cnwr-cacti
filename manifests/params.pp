@@ -17,7 +17,7 @@ class cacti::params {
   case $::osfamily {
     'RedHat': {
       case $::operatingsystemmajrelease {
-        '7': {
+        '7','6': {
           $cacti_package = 'cacti'
         }
         default: {
