@@ -19,7 +19,9 @@ describe 'cacti::service' do
         context "managed_services => #{services}" do
           let(:pre_condition) { "class {'cacti': managed_services => #{services}, #{required_params}}" }
           let(:facts) do
-            facts
+            facts.merge({
+              :root_home => '/root',
+            })
           end
           let(:params) do
             {
@@ -38,7 +40,9 @@ describe 'cacti::service' do
         context "managed_services => []" do
           let(:pre_condition) { "class {'cacti': managed_services => [], #{required_params}}" }
           let(:facts) do
-            facts
+            facts.merge({
+              :root_home => '/root',
+            })
           end
           let(:params) do
             {
