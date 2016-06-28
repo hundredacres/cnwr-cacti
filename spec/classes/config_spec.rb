@@ -17,7 +17,9 @@ describe 'cacti::config' do
       context "on #{os}" do
         let(:pre_condition) { "class {'cacti': #{required_params}}" }
         let(:facts) do
-          facts
+          facts.merge({
+            :root_home => '/root',
+          })
         end
         let(:params) do
           {

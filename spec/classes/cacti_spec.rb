@@ -18,7 +18,9 @@ describe 'cacti' do
         context "defaults + required params" do
           let(:pre_condition) { "class {'cacti': #{required_params}}" }
           let(:facts) do
-            facts
+            facts.merge({
+              :root_home => '/root',
+            })
           end
           it { should compile.with_all_deps }
           it { should contain_class('cacti::params') }
