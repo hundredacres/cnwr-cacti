@@ -36,8 +36,7 @@ describe 'cacti::config' do
         it do
           is_expected.to contain_augeas('cacti_perms').
             with({"incl"=>"/etc/httpd/conf.d/cacti.conf",
-                  "lens"=>"Httpd.lns",
-                  "context"=>"/files/etc/httpd/conf.d/cacti.conf"})
+                  "lens"=>"Httpd.lns"})
         end
         it do
           is_expected.to contain_cron__job('cacti').
