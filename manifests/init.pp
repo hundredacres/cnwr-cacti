@@ -59,6 +59,10 @@
 #
 class cacti (
   $cacti_package = $::cacti::params::cacti_package,
+  $cacti_version = $::cacti::params::cacti_version,
+  $mysql_package_name = $::cacti::params::mysql_package_name,
+  $mysql_service_name = $::cacti::params::mysql_service_name,
+  $mysql_override_options = $::cacti::params::mysql_override_options,
   $database_root_pass = $::cacti::params::database_root_pass,
   $database_pass = $::cacti::params::database_pass,
   $database_user = $::cacti::params::database_user,
@@ -98,8 +102,8 @@ class cacti (
   include ::cacti::service
 
   anchor { 'cacti::begin': } ->
-  Class['cacti::install'] ->
   Class['cacti::mysql'] ->
+  Class['cacti::install'] ->
   Class['cacti::config'] ->
   Class['cacti::service'] ->
   anchor { 'cacti::end': }

@@ -5,7 +5,10 @@
 class cacti::mysql inherits ::cacti{
 
   class { '::mysql::server':
+    override_options        => $::cacti::mysql_override_options,
+    package_name            => $::cacti::mysql_package_name,
     root_password           => $::cacti::database_root_pass,
+    service_name            => $::cacti::mysql_service_name,
     remove_default_accounts => true,
   }
 
@@ -14,7 +17,7 @@ class cacti::mysql inherits ::cacti{
     password => $::cacti::database_pass,
     host     => $::cacti::database_host,
     grant    => ['ALL'],
-    sql      => '/usr/share/doc/cacti-0.8.8b/cacti.sql',
+    sql      => "/usr/share/doc/cacti-${cacti_version}/cacti.sql",
   }
 
 }
